@@ -1,0 +1,21 @@
+.imges{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+.buntns{
+display: flex;
+gap: 20rem;
+}
+
+.slide{
+    display: flex;
+    width: 15rem;
+    height: 15rem;
+}
+.slide-hidden{
+    display: none;
+    width: 15rem;
+    height: 15rem;
+}
