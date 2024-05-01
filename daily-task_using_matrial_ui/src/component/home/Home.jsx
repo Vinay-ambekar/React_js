@@ -4,13 +4,12 @@ import '../home/home.css'
 
 
 const Home = () => {
-  let [imgdata, setimgdata] = useState([]);
+ let [imgdata, setimgdata] = useState([]);
  let [CurrentIndex,setCurrentIndex]=useState(1)
  // console.log("image", imgdata);
  useEffect(() => {
   getimg();
 }, [CurrentIndex]);
-
 const nextimg=()=>{
 setCurrentIndex(CurrentIndex +1 )
 }
@@ -31,7 +30,6 @@ const prev=()=>{
         console.log('error fetching images:',error)
     }
   };
-
 
   return (
     <>
