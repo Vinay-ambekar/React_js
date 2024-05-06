@@ -1,7 +1,9 @@
 import { Routes,Route } from "react-router-dom";
 import Home from "../home/Home.js";
-import Product from "../products/Product.js";
+import Products from "../products/Products.js";
 import React from "react";
+import SingleProduct from "../Single_product/SingleProduct.js";
+import Cart from "../cart/Cart.js";
 
 
 const Routing =()=>{
@@ -9,7 +11,9 @@ const Routing =()=>{
         <>
         <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/product" element={<Product/>} />
+            <Route path="/products" element={<Products/>} />
+            <Route path="/:id" element={<SingleProduct/>} />
+            <Route path="/cart" element={<Cart/>} />
         </Routes>
         </>
     )
