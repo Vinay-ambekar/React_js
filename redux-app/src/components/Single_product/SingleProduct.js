@@ -1,15 +1,20 @@
 import { Box,Grid,Rating} from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";//use from router
+import { Link, useNavigate, useParams } from "react-router-dom";//use from router
 import { useDispatch } from 'react-redux'//use form redux
 import { add } from "../Redux/CartSlice";
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 const SingleProduct=()=>{
-    const {id}=useParams()
+ 
 const [product,setProduct]=useState({})
 const [rating,setRating]=useState({})
 //console.log(rating)
 const dispatch = useDispatch()
+/* back button  start*/
+const {id}=useParams()
+const navigate=useNavigate()
+/* back button end*/
 
 useEffect(()=>{
     const getProduct= async()=>{
@@ -23,13 +28,14 @@ useEffect(()=>{
    
    // console.log(id)
   const handelAdd=()=>{
+    
     dispatch(add(product))
-    console.log('added')
+   // console.log('added',add(product.title)) 
   }
     return (
         <>
         <div className="container">
-        
+        <Link className="text-primary cursor-pointer" onClick={()=>{navigate(-1)}} >< ArrowCircleLeftIcon  fontSize="large" className="mt-5"/></Link>{/* back button using useParams router hook */}
         {product && Object.keys(product).length>0 ? (
         <>
             <Box className='d-flex justify-content-center align-items-center mt-5'>
@@ -61,12 +67,6 @@ useEffect(()=>{
         
         }
         </div>
-        
-         
-          
-         
-            
-        
         </>
     )
 }

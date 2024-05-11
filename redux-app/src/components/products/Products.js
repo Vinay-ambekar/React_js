@@ -3,10 +3,15 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import React from "react";
 import SearchIcon from '@mui/icons-material/Search';
+/* import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../Redux/ThunkCartSlice"; */
 
 
 const Products=()=>{
-    let [products,setProduct]=useState([])
+let [products,setProduct]=useState([])
+/*  const dispathc =useDispatch()
+const products=useSelector((state)=>{state.product.data})  */
+//console.log('products',products)
     const [serch,setSerch]=useState('')
     const [expandedProduct, setExpandedProduct] = useState();
     const [display,setDisplay]=useState(true)
@@ -16,7 +21,8 @@ const Products=()=>{
 //console.log(serch.length)
 
     useEffect(()=>{
-        productlist()
+       productlist()
+      /*  dispathc(fetchProducts()) */
     },[])
     async function productlist(){
         try{
@@ -118,7 +124,7 @@ const Products=()=>{
                         </div>
                         <div className="d-flex justify-content-atart align-items-center">
                         <Rating name="read-only" value={product.rating.rate} readOnly />
-                        <button className="btn btn-primary mx-5 w-50"> add</button>
+                        {/* <button className="btn btn-primary mx-5 w-50"> add</button> */}
                         </div>
                     </CardContent>
                 </Card>
